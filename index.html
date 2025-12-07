@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Рисовалка с ИИ | Крокодил</title>
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+  <div id="canvas-container">
+    <div id="toolbar">
+      <div id="game-info">
+        <h2>Крокодил с ИИ</h2>
+        <p id="game-state">Режим: Рисование</p>
+        <p id="timer">Время: --</p>
+        <p id="scores">Очки: Вы 0 - 0 ИИ</p>
+      </div>
+
+      <div class="tool-section">
+        <h3>Кисти</h3>
+        <select id="brush-type">
+          <option value="pencil">Карандаш</option>
+          <option value="marker">Маркер</option>
+          <option value="spray">Спрей</option>
+        </select>
+        <input type="range" id="brush-size" min="1" max="50" value="5">
+        <input type="color" id="color-picker" value="#000000">
+      </div>
+
+      <div class="tool-section">
+        <h3>Фон</h3>
+        <input type="file" id="bg-upload" accept="image/*">
+      </div>
+
+      <div class="tool-section">
+        <h3>Стикеры</h3>
+        <div id="sticker-palette">
+          <span class="sticker">😊</span>
+          <span class="sticker">⭐</span>
+          <span class="sticker">❤️</span>
+          <span class="sticker">📌</span>
+        </div>
+      </div>
+
+      <button id="start-game-btn">Начать игру</button>
+      <button id="ai-draw-btn" disabled>ИИ рисует (Вы угадываете)</button>
+      <input type="text" id="user-guess" placeholder="Ваш ответ" disabled>
+      <button id="check-guess-btn" disabled>Проверить ответ</button>
+      
+      <div style="margin-top: auto;">
+        <button id="clear-btn">Очистить</button>
+        <button id="export-btn">Сохранить в PNG</button>
+      </div>
+    </div>
+    <canvas id="drawing-canvas"></canvas>
+  </div>
+
+  <!-- Подключаем библиотеки -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
+  <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
+  
+  <!-- Основной скрипт с type="module" для поддержки современных функций JS -->
+  <script type="module" src="script.js"></script>
+  
+  <!-- Инициализация (если нужно) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('Приложение загружено!');
+    });
+  </script>
+</body>
+</html>
